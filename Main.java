@@ -4,22 +4,32 @@ import java.io.InputStreamReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.FileNotFoundException;
-
+import java.util.Arrays;
 
 
 public class Main{
 	public static void main(String [] args)throws FileNotFoundException{
 		
-		String path = "C://Java project//CberStagirovca//Cber_task_1//city_ru.csv";
-		File file = new File (path);
-				
-		Scanner scanner = new Scanner(file); // Scanner для перебора строк
-		
-		while(scanner.hasNextLine()){ //  который возвращает true, если у этого сканера есть другой токен на входе
-			System.out.println(scanner.nextLine());
-		}
+		File file = new File ("city_ru.csv");
+	    // связываем scanner с файлом
+		Scanner scanner = new Scanner(file); 
+
+			while(scanner.hasNextLine()){
+				String[] words = scanner.nextLine().split(",");
+					
+					System.out.println("City{" + "name=" + words[1] + ", region=" + words[2] + ", district=" + words[3] +
+					 ", population=" + words[4] + ", foundation=" + words[5]);
+
 		scanner.close();
 	}
-	
-	
 }
+/* class City{
+	private String name;
+	public getName(){
+		return name;
+	}
+	private String region;
+	private String district;
+	private int population;
+	private String foundation;
+} */
